@@ -8,6 +8,8 @@ export default function ManageBCsModal({ open, onClose, groups, onGroupsUpdated,
   const [draggedItem, setDraggedItem] = useState(null);
   const [deleteConfirm, setDeleteConfirm] = useState({ id: null, text: '' });
   const [saving, setSaving] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  const [editingName, setEditingName] = useState('');
 
   useEffect(() => {
     if (open && groups) {
