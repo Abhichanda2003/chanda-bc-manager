@@ -16,7 +16,7 @@ export default function AppLayout() {
         }`}
       >
         <div className="mb-8 rounded-lg bg-gradient-to-br from-emerald-700 to-cyan-700 p-4 text-white">
-          <p className="text-sm font-semibold text-white/80">Santoshi Chanda & Ravi Balate</p>
+          <p className="text-sm font-semibold text-white/80">Santoshi Chanda</p>
           <h1 className="mt-2 text-2xl font-bold">Chanda BC Manager</h1>
         </div>
         <nav className="space-y-1">

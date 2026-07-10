@@ -40,8 +40,25 @@ export async function loadDashboardData() {
     readCollection(collections.events),
   ]);
 
+  let orderedGroups = groups;
+
+  const orderSnapshot = await getDoc(doc(db, 'groupOrders', 'groupOrder'));
+
+  if (orderSnapshot.exists()) {
+  const { groupIds = [] } = orderSnapshot.data();
+
+  orderedGroups = groupIds
+    .map((id) => groups.find((g) => g.id === id))
+    .filter(Boolean);
+
+  // Append any new groups that aren't in the saved order
+  orderedGroups.push(
+    ...groups.filter((g) => !groupIds.includes(g.id))
+  );
+  }
+
   return buildDashboardData({
-    groups: groups.length ? groups : seedGroups,
+    groups: orderedGroups.length ? orderedGroups : seedGroups,
     members: members.length ? members : seedMembers,
     payments: payments.length ? payments : seedPayments,
     winners: winners.length ? winners : seedWinners,
