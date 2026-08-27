@@ -36,7 +36,7 @@ export default function LoginPage() {
         <div className="mb-6 rounded-lg bg-gradient-to-br from-emerald-700 to-cyan-700 p-5 text-white">
           <LockKeyhole size={28} aria-hidden="true" />
           <h1 className="mt-4 text-2xl font-bold">Chanda BC Manager</h1>
-          <p className="mt-2 text-sm text-white/80">Private access for Santoshi Chanda and Ravi Balate.</p>
+          <p className="mt-2 text-sm text-white/80">Private access for Santoshi Chanda .</p>
         </div>
 
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
