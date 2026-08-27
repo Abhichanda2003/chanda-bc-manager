@@ -7,11 +7,13 @@ import GroupsPage from './pages/GroupsPage.jsx';
 import BCDetailsPage from './pages/BCDetailsPage.jsx';
 import BCMembersPage from './pages/BCMembersPage.jsx';
 import BCMonthlyCollectionPage from './pages/BCMonthlyCollectionPage.jsx';
+import BCWinnerHistoryPage from './pages/BCWinnerHistoryPage.jsx';
 import MembersPage from './pages/MembersPage.jsx';
 import PaymentsPage from './pages/PaymentsPage.jsx';
 import ReportsPage from './pages/ReportsPage.jsx';
 import SettingsPage from './pages/SettingsPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
+import ForgotPassword from './components/forgotpassword.jsx';
 import WinnersPage from './pages/WinnersPage.jsx';
 
 export default function App() {
@@ -28,6 +30,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="login" element={<LoginPage />} />
+      <Route path="forgot-password" element={<ForgotPassword />} />
 
       <Route
         element={
@@ -46,6 +49,7 @@ export default function App() {
         <Route path="groups/:id" element={<BCDetailsPage />} />
         <Route path="groups/:groupId/members" element={<BCMembersPage />} />
         <Route path="groups/:groupId/collections" element={<BCMonthlyCollectionPage />} />
+        <Route path="groups/:groupId/winners" element={<BCWinnerHistoryPage />} />
 
         <Route path="members" element={<MembersPage />} />
         <Route path="payments" element={<PaymentsPage />} />

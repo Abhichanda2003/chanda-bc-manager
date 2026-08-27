@@ -16,6 +16,7 @@ export function getGroups() {
 }
 
 export function getMembers() {
+  console.log('Members:', members);
   return members.map((member) => ({
     ...member,
     groups: member.groupIds.map((id) => groups.find((group) => group.id === id)).filter(Boolean),

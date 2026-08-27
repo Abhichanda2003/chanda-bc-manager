@@ -1,7 +1,7 @@
 import { LockKeyhole } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Button from '../components/Button.jsx';
 import Card from '../components/Card.jsx';
 import FormField from '../components/FormField.jsx';
@@ -9,6 +9,7 @@ import { useAuth } from '../auth/AuthContext.jsx';
 
 export default function LoginPage() {
   const { isAuthenticated, login } = useAuth();
+  const navigate = useNavigate();
   const [error, setError] = useState('');
   const {
     register,
@@ -56,9 +57,20 @@ export default function LoginPage() {
             />
           </FormField>
           {error && <p className="rounded-md bg-rose-50 px-3 py-2 text-sm font-medium text-clay">{error}</p>}
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? 'Signing in...' : 'Sign In'}
-          </Button>
+          <div className="flex items-center justify-between">
+            <Button type="submit" className="flex-1" disabled={isSubmitting}>
+              {isSubmitting ? 'Signing in...' : 'Sign In'}
+            </Button>
+          </div>
+          <div className="text-center">
+            <button
+              type="button"
+              onClick={() => navigate('/forgot-password')}
+              className="text-sm text-slate-600 hover:text-slate-900 underline"
+            >
+              Forgot Password?
+            </button>
+          </div>
         </form>
       </Card>
     </main>
