@@ -35,13 +35,13 @@ export default function CalendarPage() {
           <div className="mt-4 space-y-3">
             {selectedEvents.length ? (
               selectedEvents.map((event) => (
-                <div key={event.id} className="rounded-md border border-slate-100 bg-slate-50 p-3">
-                  <p className="font-semibold">{event.title}</p>
-                  <p className="text-sm text-slate-500">{event.type}</p>
+                <div key={event.id} className="rounded-md border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-3">
+                  <p className="font-semibold text-slate-900 dark:text-slate-100">{event.title}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">{event.type}</p>
                 </div>
               ))
             ) : (
-              <p className="text-sm text-slate-500">No events for this date.</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">No events for this date.</p>
             )}
           </div>
         </Card>

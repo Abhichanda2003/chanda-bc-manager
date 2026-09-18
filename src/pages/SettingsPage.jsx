@@ -35,13 +35,13 @@ export default function SettingsPage() {
         <form className="grid gap-4 sm:grid-cols-2" onSubmit={handleSubmit(onSubmit)}>
           <FormField label="Business Name" error={errors.businessName}>
             <input
-              className="min-h-11 w-full rounded-md border border-slate-200 px-3 outline-none focus:border-leaf"
+              className="min-h-11 w-full rounded-md border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 px-3 outline-none focus:border-leaf dark:focus:border-emerald-500"
               {...register('businessName', { required: 'Business name is required' })}
             />
           </FormField>
           <FormField label="Default Payment Mode">
             <select
-              className="min-h-11 w-full rounded-md border border-slate-200 px-3 outline-none focus:border-leaf"
+              className="min-h-11 w-full rounded-md border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 px-3 outline-none focus:border-leaf dark:focus:border-emerald-500"
               {...register('defaultPaymentMode')}
             >
               <option>Cash</option>
@@ -51,13 +51,13 @@ export default function SettingsPage() {
           </FormField>
           <FormField label="Owner 1" error={errors.ownerOne}>
             <input
-              className="min-h-11 w-full rounded-md border border-slate-200 px-3 outline-none focus:border-leaf"
+              className="min-h-11 w-full rounded-md border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 px-3 outline-none focus:border-leaf dark:focus:border-emerald-500"
               {...register('ownerOne', { required: 'Owner is required' })}
             />
           </FormField>
           <FormField label="Owner 2" error={errors.ownerTwo}>
             <input
-              className="min-h-11 w-full rounded-md border border-slate-200 px-3 outline-none focus:border-leaf"
+              className="min-h-11 w-full rounded-md border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 px-3 outline-none focus:border-leaf dark:focus:border-emerald-500"
               {...register('ownerTwo', { required: 'Owner is required' })}
             />
           </FormField>

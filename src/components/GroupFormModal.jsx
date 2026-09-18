@@ -187,13 +187,13 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
       aria-labelledby="group-form-modal-title"
       onClick={handleOverlayClick}
     >
-      <div className="mx-auto w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-slate-200" onClick={(event) => event.stopPropagation()}>
-        <div className="flex items-start justify-between border-b border-slate-200 px-6 py-5">
+      <div className="mx-auto w-full max-w-2xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-2xl ring-1 ring-slate-200 dark:ring-slate-700" onClick={(event) => event.stopPropagation()}>
+        <div className="flex items-start justify-between border-b border-slate-200 dark:border-slate-700 px-6 py-5">
           <div>
-            <h2 id="group-form-modal-title" className="text-lg font-semibold text-slate-900">
+            <h2 id="group-form-modal-title" className="text-lg font-semibold text-slate-900 dark:text-slate-100">
               {showStepTwo ? secondaryTitle : title}
             </h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
               {showStepTwo
                 ? 'Enter the winner amount for every month in your BC schedule.'
                 : 'Enter the BC details. Tap Next to continue to the winner amount schedule.'}
@@ -202,7 +202,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
+            className="rounded-full p-2 text-slate-500 dark:text-slate-400 transition hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-200"
           >
             <span className="sr-only">Close modal</span>
             ×
@@ -216,7 +216,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                 <input
                   type="text"
                   {...register('name', { required: 'BC Name is required' })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                   placeholder="Enter group name"
                 />
               </FormField>
@@ -228,7 +228,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                     required: 'Monthly amount is required',
                     min: { value: 1, message: 'Monthly amount must be at least 1' },
                   })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                   placeholder="0"
                   min="1"
                 />
@@ -241,7 +241,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                     required: 'Total members is required',
                     min: { value: 1, message: 'Total members must be at least 1' },
                   })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                   placeholder="0"
                   min="1"
                 />
@@ -254,7 +254,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                     required: 'Duration is required',
                     min: { value: 1, message: 'Duration must be at least 1 month' },
                   })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                   placeholder="0"
                   min="1"
                 />
@@ -264,7 +264,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                 <input
                   type="date"
                   {...register('startDate', { required: 'Start date is required' })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                 />
               </FormField>
 
@@ -276,7 +276,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                     min: { value: 1, message: 'Collection day must be 1 or greater' },
                     max: { value: 31, message: 'Collection day must be 31 or less' },
                   })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                   placeholder="1"
                   min="1"
                   max="31"
@@ -291,7 +291,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                     min: { value: 1, message: 'Winner day must be 1 or greater' },
                     max: { value: 31, message: 'Winner day must be 31 or less' },
                   })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                  className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                   placeholder="1"
                   min="1"
                   max="31"
@@ -299,9 +299,9 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
               </FormField>
             </div>
 
-            {submitError && <p className="text-sm font-medium text-clay">{submitError}</p>}
+            {submitError && <p className="text-sm font-medium text-clay dark:text-red-400">{submitError}</p>}
 
-            <div className="flex flex-col gap-3 border-t border-slate-200 pt-4 sm:flex-row sm:justify-end">
+            <div className="flex flex-col gap-3 border-t border-slate-200 dark:border-slate-700 pt-4 sm:flex-row sm:justify-end">
               <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={onClose} disabled={isSubmitting || isSubmittingSchedule}>
                 Cancel
               </Button>
@@ -312,21 +312,21 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
           </form>
         ) : (
           <div className="space-y-6 px-6 py-6">
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-sm text-slate-600">{completedScheduleCount} / {durationMonths} Amounts Entered</p>
+            <div className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4">
+              <p className="text-sm text-slate-600 dark:text-slate-300">{completedScheduleCount} / {durationMonths} Amounts Entered</p>
             </div>
 
             <div className="grid gap-4">
               {scheduleEntries.map((entry) => {
                 const locked = entry.month <= lockedMonths;
                 return (
-                  <div key={entry.month} className="grid gap-2 rounded-3xl border border-slate-200 bg-white p-4 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
+                  <div key={entry.month} className="grid gap-2 rounded-3xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 bg-white p-4 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
                     <div>
-                      <p className="text-sm font-semibold text-slate-900">Month {entry.month}</p>
+                      <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Month {entry.month}</p>
                       {locked ? (
-                        <p className="mt-1 text-xs text-slate-500">🔒 Locked until this month is complete.</p>
+                        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">🔒 Locked until this month is complete.</p>
                       ) : (
-                        <p className="mt-1 text-xs text-slate-500">Enter the winner amount for this month.</p>
+                        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Enter the winner amount for this month.</p>
                       )}
                     </div>
                     <input
@@ -336,7 +336,7 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
                       value={entry.amount}
                       onChange={(event) => handleScheduleAmountChange(entry.month, event.target.value)}
                       disabled={locked}
-                      className={`w-full rounded-3xl border px-4 py-3 text-sm shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20 ${locked ? 'border-slate-200 bg-slate-100 text-slate-500' : 'border-slate-200 bg-white text-slate-900'}`}
+                      className={`w-full rounded-3xl border px-4 py-3 text-sm shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20 ${locked ? 'border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400' : 'border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900'}`}
                       placeholder="₹ 0"
                     />
                   </div>
@@ -344,9 +344,9 @@ export default function GroupFormModal({ open, onClose, onGroupAdded, initialGro
               })}
             </div>
 
-            {submitError && <p className="text-sm font-medium text-clay">{submitError}</p>}
+            {submitError && <p className="text-sm font-medium text-clay dark:text-red-400">{submitError}</p>}
 
-            <div className="flex flex-col gap-3 border-t border-slate-200 pt-4 sm:flex-row sm:justify-between">
+            <div className="flex flex-col gap-3 border-t border-slate-200 dark:border-slate-700 pt-4 sm:flex-row sm:justify-between">
               <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={handleBack} disabled={isSubmittingSchedule}>
                 Back
               </Button>

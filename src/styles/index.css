@@ -11,6 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.dark {
+  background: #0f172e;
+  color: #e2e8f0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -30,21 +35,43 @@ textarea {
 
 .react-calendar {
   width: 100%;
-  border: 0;
+  border: 1px solid rgba(226, 232, 240, 0.2);
   border-radius: 8px;
   padding: 12px;
   box-shadow: 0 16px 48px rgba(23, 32, 38, 0.08);
+  background: white;
+}
+
+html.dark .react-calendar {
+  background: rgb(15, 23, 42);
+  border-color: rgb(71, 85, 105);
 }
 
 .react-calendar__tile {
   border-radius: 6px;
   padding: 10px 6px;
+  color: #172026;
+}
+
+html.dark .react-calendar__tile {
+  color: #e2e8f0;
 }
 
 .react-calendar__tile--active {
   background: #28715f;
+  color: white;
+}
+
+html.dark .react-calendar__tile--active {
+  background: #047857;
+  color: white;
 }
 
 .react-calendar__tile--now {
   background: #f3e5c8;
+}
+
+html.dark .react-calendar__tile--now {
+  background: rgb(180, 83, 9);
+  color: white;
 }

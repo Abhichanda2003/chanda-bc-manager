@@ -58,7 +58,7 @@ export default function BCWinnerHistoryPage() {
         <div className="mt-4">
           <button
             onClick={() => navigate('/groups')}
-            className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50"
+            className="inline-flex items-center gap-2 rounded-md bg-white dark:bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             ← Back to BC List
           </button>
@@ -72,7 +72,7 @@ export default function BCWinnerHistoryPage() {
       <div className="mb-4">
         <button
           onClick={() => navigate(`/groups/${groupId}`)}
-          className="inline-flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50"
+          className="inline-flex items-center gap-2 rounded-md bg-white dark:bg-slate-900 px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800"
         >
           <ChevronLeft size={16} />
           Back to {group.name}
@@ -93,11 +93,11 @@ export default function BCWinnerHistoryPage() {
                 <Card key={winner.id} className="p-4">
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <p className="text-xs font-medium text-slate-500">Month {winner.monthNumber}</p>
-                      <p className="mt-1 text-sm font-semibold text-slate-900">{winner.winnerName}</p>
+                      <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Month {winner.monthNumber}</p>
+                      <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-slate-100">{winner.winnerName}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-semibold text-slate-900">
+                      <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
                         {formatCurrency(winner.winningAmount)}
                       </p>
                     </div>
@@ -108,7 +108,7 @@ export default function BCWinnerHistoryPage() {
         ) : (
           <Card className="p-8">
             <div className="text-center">
-              <p className="text-sm text-slate-500">No completed months yet.</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">No completed months yet.</p>
             </div>
           </Card>
         )}

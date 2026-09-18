@@ -100,11 +100,11 @@ export default function GroupsPage() {
               <div className="flex h-full flex-col justify-between">
                 {/* BC Name */}
                 <div>
-                  <h2 className="text-xl font-bold text-slate-900">
+                  <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
                     {group.name}
                   </h2>
 
-                  <p className="mt-2 text-base font-medium text-slate-600">
+                  <p className="mt-2 text-base font-medium text-slate-700 dark:text-slate-300">
                     {formatCurrency(group.monthlyAmount)} / Month
                   </p>
                 </div>
@@ -112,28 +112,28 @@ export default function GroupsPage() {
                 {/* Details */}
                 <div className="mt-6 space-y-3 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Members Added</span>
-                    <span className="font-semibold">
+                    <span className="text-slate-600 dark:text-slate-400">Members Added</span>
+                    <span className="font-semibold text-slate-900 dark:text-slate-100">
                       {membersAdded} of {group.totalMembers}
                     </span>
                   </div>
 
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Duration</span>
-                    <span className="font-semibold">
+                    <span className="text-slate-600 dark:text-slate-400">Duration</span>
+                    <span className="font-semibold text-slate-900 dark:text-slate-100">
                       {group.durationMonths} Months
                     </span>
                   </div>
 
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Started</span>
-                    <span className="font-semibold">
+                    <span className="text-slate-600 dark:text-slate-400">Started</span>
+                    <span className="font-semibold text-slate-900 dark:text-slate-100">
                       {formatDate(group.startDate)}
                     </span>
                   </div>
 
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-500">Status</span>
+                    <span className="text-slate-600 dark:text-slate-400">Status</span>
 
                     <Badge>
                       🟢 {group.status}

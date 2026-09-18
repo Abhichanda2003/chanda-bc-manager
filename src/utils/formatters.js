@@ -16,14 +16,14 @@ export function formatDate(value) {
 
 export function statusClass(status) {
   const styles = {
-    Running: 'bg-emerald-100 text-emerald-800',
-    Completed: 'bg-slate-200 text-slate-700',
-    Upcoming: 'bg-amber-100 text-amber-800',
-    Active: 'bg-emerald-100 text-emerald-800',
-    Paid: 'bg-emerald-100 text-emerald-800',
-    Pending: 'bg-rose-100 text-rose-800',
-    Unpaid: 'bg-rose-100 text-rose-800',
+    Running: 'bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200',
+    Completed: 'bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200',
+    Upcoming: 'bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200',
+    Active: 'bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200',
+    Paid: 'bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200',
+    Pending: 'bg-rose-100 dark:bg-rose-900 text-rose-800 dark:text-rose-200',
+    Unpaid: 'bg-rose-100 dark:bg-rose-900 text-rose-800 dark:text-rose-200',
   };
 
-  return styles[status] || 'bg-slate-100 text-slate-700';
+  return styles[status] || 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300';
 }

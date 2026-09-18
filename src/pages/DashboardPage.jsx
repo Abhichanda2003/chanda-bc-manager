@@ -52,7 +52,7 @@ export default function DashboardPage() {
         <PageHeader title="BC Payment Dashboard" description="Loading BC data..." />
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="h-28 animate-pulse rounded-lg bg-white/80" />
+            <div key={item} className="h-28 animate-pulse rounded-lg bg-slate-200 dark:bg-slate-700" />
           ))}
         </div>
       </>
@@ -79,14 +79,14 @@ export default function DashboardPage() {
       <div className="mt-6 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
         <Card className="p-5">
           <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-lg font-bold">Upcoming BC Dates</h3>
-            <CalendarCheck size={20} className="text-leaf" aria-hidden="true" />
+            <h3 className="text-lg font-bold text-ink dark:text-slate-100">Upcoming BC Dates</h3>
+            <CalendarCheck size={20} className="text-leaf dark:text-emerald-400" aria-hidden="true" />
           </div>
           <div className="space-y-3">
             {stats.upcomingEvents.map((event) => (
-              <div key={event.id} className="rounded-md border border-emerald-100 bg-emerald-50 p-3">
-                <p className="font-bold">{event.groupName}</p>
-                <div className="mt-2 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+              <div key={event.id} className="rounded-md border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950 p-3">
+                <p className="font-bold text-emerald-900 dark:text-emerald-100">{event.groupName}</p>
+                <div className="mt-2 grid gap-2 text-sm text-emerald-800 dark:text-emerald-200 sm:grid-cols-2">
                   <p>Collection: <strong>{formatDate(event.collectionDate)}</strong></p>
                   <p>Winner: <strong>{formatDate(event.winnerDate)}</strong></p>
                 </div>
@@ -94,10 +94,10 @@ export default function DashboardPage() {
             ))}
           </div>
         </Card>
-        <Card className="bg-gradient-to-br from-amber-50 via-white to-cyan-50 p-5">
-          <p className="text-sm font-semibold uppercase text-slate-500">Payment Focus</p>
-          <h3 className="mt-2 text-xl font-bold">{stats.pendingPayments} pending payment entries</h3>
-          <p className="mt-3 text-sm leading-6 text-slate-600">
+        <Card className="p-5">
+          <p className="text-sm font-semibold uppercase text-slate-600 dark:text-slate-400">Payment Focus</p>
+          <h3 className="mt-2 text-xl font-bold text-ink dark:text-slate-100">{stats.pendingPayments} pending payment entries</h3>
+          <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
             Today&apos;s recorded collection is <strong>{formatCurrency(stats.todayCollection)}</strong>. The BC cards
             below keep each member&apos;s monthly status editable in one place.
           </p>

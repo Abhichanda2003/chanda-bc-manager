@@ -50,8 +50,8 @@ export default function BCMembersPage() {
     return (
       <div className="py-12">
         <Card className="mx-auto max-w-xl p-6 text-center">
-          <h2 className="text-xl font-semibold text-slate-900">BC not found</h2>
-          <p className="mt-2 text-sm text-slate-500">The selected BC could not be loaded.</p>
+          <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">BC not found</h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">The selected BC could not be loaded.</p>
           <div className="mt-6">
             <Button type="button" onClick={() => navigate(`/groups/${groupId}`)}>
               ← Back to BC
@@ -98,7 +98,7 @@ export default function BCMembersPage() {
           <Button type="button" variant="secondary" onClick={() => navigate(`/groups/${groupId}`)}>
             ← Back to BC
           </Button>
-          <div className="text-sm text-slate-600">{members.length} / {group.totalMembers || members.length} Members</div>
+          <div className="text-sm text-slate-600 dark:text-slate-400">{members.length} / {group.totalMembers || members.length} Members</div>
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -106,7 +106,7 @@ export default function BCMembersPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search members"
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+            className="rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
           />
           <Button type="button" onClick={() => setIsModalOpen(true)}>
             <Plus size={18} /> Add Member
@@ -130,9 +130,9 @@ export default function BCMembersPage() {
       <PageHeader title={group.name} description="View member payment progress and history. Monthly collection support is coming soon." />
 
       {filteredMembers.length === 0 ? (
-        <Card className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center">
-          <p className="text-lg font-semibold text-slate-900">No members found.</p>
-          <p className="mt-2 text-sm text-slate-500">Try changing the search term or add a new member.</p>
+        <Card className="mt-6 rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 p-10 text-center">
+          <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">No members found.</p>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">Try changing the search term or add a new member.</p>
         </Card>
       ) : (
         <div className="mt-6 space-y-4">
@@ -143,34 +143,34 @@ export default function BCMembersPage() {
             const isExpanded = expandedMemberId === member.id;
 
             return (
-              <Card key={member.id} className="border-slate-200 bg-white p-6 shadow-sm">
+              <Card key={member.id} className="border-slate-200 dark:border-slate-700 dark:bg-slate-900 bg-white p-6 shadow-sm">
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-sm text-slate-500">
+                    <div className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
                       <span>#{idx + 1}</span>
-                      <span className="h-1 w-1 rounded-full bg-slate-300" />
+                      <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-600" />
                       <span>{member.phone}</span>
                     </div>
                     <div>
-                      <p className="text-lg font-semibold text-slate-900">{member.name}</p>
-                      <p className="mt-1 text-sm text-slate-600">{member.address}</p>
-                      <p className="mt-1 text-sm text-slate-500">Nominee: {member.nomineeName || 'Not Added'}</p>
-                      <p className="mt-1 text-sm text-slate-500">Joined {formatDate(member.joiningDate)}</p>
+                      <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{member.name}</p>
+                      <p className="mt-1 text-sm text-slate-700 dark:text-slate-300">{member.address}</p>
+                      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Nominee: {member.nomineeName || 'Not Added'}</p>
+                      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Joined {formatDate(member.joiningDate)}</p>
                     </div>
                   </div>
 
                   <div className="grid gap-3 sm:grid-cols-3">
-                    <div className="rounded-3xl bg-slate-50 p-4 text-center">
-                      <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Paid Months</p>
-                      <p className="mt-2 text-lg font-semibold text-slate-900">{paidMonths} / {totalMonths}</p>
+                    <div className="rounded-3xl bg-slate-50 dark:bg-slate-800 p-4 text-center">
+                      <p className="text-xs uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400">Paid Months</p>
+                      <p className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-100">{paidMonths} / {totalMonths}</p>
                     </div>
-                    <div className="rounded-3xl bg-slate-50 p-4 text-center">
-                      <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Payment History</p>
-                      <p className="mt-2 text-lg font-semibold text-slate-900">{paymentHistory.length} months</p>
+                    <div className="rounded-3xl bg-slate-50 dark:bg-slate-800 p-4 text-center">
+                      <p className="text-xs uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400">Payment History</p>
+                      <p className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-100">{paymentHistory.length} months</p>
                     </div>
                     <button
                       type="button"
-                      className="inline-flex items-center justify-center rounded-3xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                      className="inline-flex items-center justify-center rounded-3xl bg-slate-50 dark:bg-slate-800 px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 transition hover:bg-slate-100 dark:hover:bg-slate-700"
                       onClick={() => setExpandedMemberId(isExpanded ? null : member.id)}
                     >
                       {isExpanded ? (
@@ -183,15 +183,15 @@ export default function BCMembersPage() {
                 </div>
 
                 {isExpanded && (
-                  <div className="mt-6 rounded-3xl bg-slate-50 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Payment History</p>
+                  <div className="mt-6 rounded-3xl bg-slate-50 dark:bg-slate-800 p-4">
+                    <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Payment History</p>
                     <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                       {paymentHistory.map((item) => (
-                        <div key={item.monthLabel} className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                          <p className="text-sm font-semibold text-slate-900">{item.monthLabel}</p>
-                          <p className="mt-1 text-sm text-slate-500">
+                        <div key={item.monthLabel} className="rounded-2xl border border-slate-200 dark:border-slate-700 dark:bg-slate-900 bg-white px-4 py-3">
+                          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{item.monthLabel}</p>
+                          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
                             {item.status === 'Paid' ? (
-                              <span className="text-emerald-700">🟢 Paid</span>
+                              <span className="text-emerald-700 dark:text-emerald-400">🟢 Paid</span>
                             ) : (
                               item.status
                             )}

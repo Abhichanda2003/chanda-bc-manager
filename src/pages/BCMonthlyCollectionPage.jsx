@@ -199,7 +199,7 @@ export default function BCMonthlyCollectionPage() {
     return (
       <div className="py-12 px-4 sm:px-6">
         <Card className="mx-auto max-w-xl p-8 text-center">
-          <p className="text-lg font-semibold text-slate-900">Loading monthly collection...</p>
+          <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">Loading monthly collection...</p>
         </Card>
       </div>
     );
@@ -209,8 +209,8 @@ export default function BCMonthlyCollectionPage() {
     return (
       <div className="py-12 px-4 sm:px-6">
         <Card className="mx-auto max-w-xl p-8 text-center">
-          <p className="text-xl font-semibold text-slate-900">BC not found</p>
-          <p className="mt-2 text-sm text-slate-500">The BC group could not be loaded.</p>
+          <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">BC not found</p>
+          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">The BC group could not be loaded.</p>
           <div className="mt-6 flex justify-center">
             <Button type="button" onClick={() => navigate(`/groups`)}>
               ← Back to BC list
@@ -227,7 +227,7 @@ export default function BCMonthlyCollectionPage() {
         <button
           type="button"
           onClick={() => navigate(`/groups/${groupId}`)}
-          className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+          className="inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm transition hover:bg-slate-50 dark:hover:bg-slate-800"
         >
           <ArrowLeft size={16} /> Back to BC
         </button>
@@ -242,11 +242,11 @@ export default function BCMonthlyCollectionPage() {
         <Card className="p-4 sm:p-5">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-sm text-slate-500">Month selector</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Month selector</p>
               <select
                 value={selectedMonth}
                 onChange={(event) => setSelectedMonth(event.target.value)}
-                className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20 sm:w-auto"
+                className="mt-2 w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-base text-slate-900 dark:text-slate-100 outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20 sm:w-auto"
               >
                 {schedule.map((month) => (
                   <option key={month.label} value={month.label}>
@@ -256,9 +256,9 @@ export default function BCMonthlyCollectionPage() {
               </select>
             </div>
 
-            <div className="rounded-3xl bg-slate-50 p-4 text-center">
-              <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Progress</p>
-              <p className="mt-2 text-lg font-semibold text-slate-900">
+            <div className="rounded-3xl bg-slate-50 dark:bg-slate-800 p-4 text-center">
+              <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">Progress</p>
+              <p className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-100">
                 Month {selectedScheduleItem ? selectedScheduleItem.index + 1 : 0} of {group.durationMonths || schedule.length}
               </p>
             </div>
@@ -267,23 +267,23 @@ export default function BCMonthlyCollectionPage() {
 
         <Card className="p-4 sm:p-5">
           <div className="flex flex-col gap-3">
-            <p className="text-sm text-slate-500">Collection status</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Collection status</p>
             <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-3xl bg-white p-4 shadow-sm">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Total Members</p>
-                <p className="mt-2 text-2xl font-semibold text-slate-900">{monthlyStats.totalMembers}</p>
+              <div className="rounded-3xl bg-white dark:bg-slate-800 p-4 shadow-sm">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Total Members</p>
+                <p className="mt-2 text-2xl font-semibold text-slate-900 dark:text-slate-100">{monthlyStats.totalMembers}</p>
               </div>
-              <div className="rounded-3xl bg-white p-4 shadow-sm">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Paid Members</p>
-                <p className="mt-2 text-2xl font-semibold text-emerald-800">{monthlyStats.paidMembers}</p>
+              <div className="rounded-3xl bg-white dark:bg-slate-800 p-4 shadow-sm">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Paid Members</p>
+                <p className="mt-2 text-2xl font-semibold text-emerald-800 dark:text-emerald-400">{monthlyStats.paidMembers}</p>
               </div>
-              <div className="rounded-3xl bg-white p-4 shadow-sm">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Pending Members</p>
-                <p className="mt-2 text-2xl font-semibold text-rose-700">{monthlyStats.pendingMembers}</p>
+              <div className="rounded-3xl bg-white dark:bg-slate-800 p-4 shadow-sm">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Pending Members</p>
+                <p className="mt-2 text-2xl font-semibold text-rose-700 dark:text-rose-400">{monthlyStats.pendingMembers}</p>
               </div>
-              <div className="rounded-3xl bg-white p-4 shadow-sm">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Collection %</p>
-                <p className="mt-2 text-2xl font-semibold text-slate-900">{monthlyStats.percentage}%</p>
+              <div className="rounded-3xl bg-white dark:bg-slate-800 p-4 shadow-sm">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Collection %</p>
+                <p className="mt-2 text-2xl font-semibold text-slate-900 dark:text-slate-100">{monthlyStats.percentage}%</p>
               </div>
             </div>
           </div>
@@ -291,13 +291,13 @@ export default function BCMonthlyCollectionPage() {
       </div>
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
-        <Card className="rounded-3xl bg-white p-4 text-center shadow-sm">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Collected Amount</p>
-          <p className="mt-3 text-2xl font-semibold text-emerald-800">{formatCurrency(monthlyStats.collectedAmount)}</p>
+        <Card className="rounded-3xl bg-white dark:bg-slate-800 p-4 text-center shadow-sm">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Collected Amount</p>
+          <p className="mt-3 text-2xl font-semibold text-emerald-800 dark:text-emerald-400">{formatCurrency(monthlyStats.collectedAmount)}</p>
         </Card>
-        <Card className="rounded-3xl bg-white p-4 text-center shadow-sm">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Expected Amount</p>
-          <p className="mt-3 text-2xl font-semibold text-slate-900">{formatCurrency(monthlyStats.expectedAmount)}</p>
+        <Card className="rounded-3xl bg-white dark:bg-slate-800 p-4 text-center shadow-sm">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Expected Amount</p>
+          <p className="mt-3 text-2xl font-semibold text-slate-900 dark:text-slate-100">{formatCurrency(monthlyStats.expectedAmount)}</p>
         </Card>
       </div>
 
@@ -308,7 +308,7 @@ export default function BCMonthlyCollectionPage() {
               key={filter}
               type="button"
               onClick={() => setStatusFilter(filter)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${statusFilter === filter ? 'bg-leaf text-white' : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${statusFilter === filter ? 'bg-leaf text-white' : 'border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
             >
               {filter}
             </button>
@@ -316,27 +316,27 @@ export default function BCMonthlyCollectionPage() {
         </div>
 
         <div className="relative w-full sm:w-72">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search name or phone"
-            className="w-full rounded-2xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm text-slate-900 outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+            className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-slate-100 outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
           />
         </div>
       </div>
 
       {!isOnline && (
-        <Card className="mt-4 rounded-3xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+        <Card className="mt-4 rounded-3xl border border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950 p-4 text-sm text-amber-800 dark:text-amber-200">
           Offline mode detected. Changes will sync when your device reconnects.
         </Card>
       )}
 
       {error && (
-        <Card className="mt-4 rounded-3xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
+        <Card className="mt-4 rounded-3xl border border-rose-200 dark:border-rose-900 bg-rose-50 dark:bg-rose-950 p-4 text-sm text-rose-800 dark:text-rose-200">
           <div className="flex items-center justify-between gap-3">
             <div>{error}</div>
-            <button type="button" onClick={handleRetry} className="inline-flex items-center gap-2 text-sm font-semibold text-rose-700 underline">
+            <button type="button" onClick={handleRetry} className="inline-flex items-center gap-2 text-sm font-semibold text-rose-700 dark:text-rose-300 underline">
               <RefreshCw size={16} /> Retry
             </button>
           </div>
@@ -344,27 +344,27 @@ export default function BCMonthlyCollectionPage() {
       )}
 
       {members.length === 0 ? (
-        <Card className="mt-6 rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
-          <p className="text-lg font-semibold text-slate-900">No members available.</p>
-          <p className="mt-2 text-sm text-slate-500">Please add members before collecting payments.</p>
+        <Card className="mt-6 rounded-3xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-8 text-center">
+          <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">No members available.</p>
+          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Please add members before collecting payments.</p>
         </Card>
       ) : (
         <div className="mt-6 space-y-4">
           {visibleMembers.map(({ member, status, paymentId, amount }, index) => (
-            <Card key={member.id} className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm">
+            <Card key={member.id} className="rounded-[2rem] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 shadow-sm">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-lg font-semibold text-slate-900">{member.name}</p>
-                  <p className="mt-2 flex items-center gap-2 text-sm text-slate-600">
+                  <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{member.name}</p>
+                  <p className="mt-2 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <Phone size={16} /> {member.phone || 'No phone'}
                   </p>
-                  <p className="mt-2 flex items-center gap-2 text-sm text-slate-600">
+                  <p className="mt-2 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <MapPin size={16} /> {member.address || 'No village'}
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-3 sm:items-end">
-                  <div className="rounded-3xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                  <div className="rounded-3xl bg-slate-50 dark:bg-slate-800 px-4 py-3 text-sm text-slate-700 dark:text-slate-300">
                     Current Month
                   </div>
                   <Button
@@ -382,9 +382,9 @@ export default function BCMonthlyCollectionPage() {
           ))}
 
           {visibleMembers.length === 0 && (
-            <Card className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
-              <p className="text-lg font-semibold text-slate-900">No matching members found.</p>
-              <p className="mt-2 text-sm text-slate-500">Try a different filter or search term.</p>
+            <Card className="rounded-3xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-8 text-center">
+              <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">No matching members found.</p>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Try a different filter or search term.</p>
             </Card>
           )}
         </div>

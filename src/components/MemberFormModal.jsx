@@ -74,16 +74,16 @@ export default function MemberFormModal({ open, onClose, groupId, onMemberAdded,
       aria-modal="true"
       onClick={handleOverlayClick}
     >
-      <div className="mx-auto w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-slate-200" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-start justify-between border-b border-slate-200 px-6 py-5">
+      <div className="mx-auto w-full max-w-lg overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-2xl ring-1 ring-slate-200 dark:ring-slate-700" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-start justify-between border-b border-slate-200 dark:border-slate-700 px-6 py-5">
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">Add Member</h2>
-            <p className="mt-1 text-sm text-slate-500">Enter member details for this BC.</p>
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Add Member</h2>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Enter member details for this BC.</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
+            className="rounded-full p-2 text-slate-500 dark:text-slate-400 transition hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-200"
           >
             <span className="sr-only">Close modal</span>
             ×
@@ -96,7 +96,7 @@ export default function MemberFormModal({ open, onClose, groupId, onMemberAdded,
               <input
                 type="text"
                 {...register('name', { required: 'Member name is required' })}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                 placeholder="Full name"
               />
             </FormField>
@@ -105,7 +105,7 @@ export default function MemberFormModal({ open, onClose, groupId, onMemberAdded,
               <input
                 type="tel"
                 {...register('phone', { required: 'Phone number is required' })}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                 placeholder="Mobile number"
               />
             </FormField>
@@ -114,7 +114,7 @@ export default function MemberFormModal({ open, onClose, groupId, onMemberAdded,
               <input
                 type="text"
                 {...register('address', { required: 'Address is required' })}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                 placeholder="Village or address"
               />
             </FormField>
@@ -123,13 +123,13 @@ export default function MemberFormModal({ open, onClose, groupId, onMemberAdded,
               <input
                 type="text"
                 {...register('nomineeName')}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20"
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-leaf dark:focus:border-emerald-500 focus:ring-2 focus:ring-leaf/20"
                 placeholder="Nominee name"
               />
             </FormField>
           </div>
 
-          <div className="flex flex-col gap-3 border-t border-slate-200 pt-4 sm:flex-row sm:justify-end">
+          <div className="flex flex-col gap-3 border-t border-slate-200 dark:border-slate-700 pt-4 sm:flex-row sm:justify-end">
             <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={onClose} disabled={isSubmitting}>
               Cancel
             </Button>

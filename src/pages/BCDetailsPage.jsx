@@ -90,7 +90,7 @@ export default function BCDetailsPage() {
         <div className="mt-4">
           <button
             onClick={() => navigate('/groups')}
-            className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50"
+            className="inline-flex items-center gap-2 rounded-md bg-white dark:bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
           >
             ← Back to BC List
           </button>
@@ -140,7 +140,7 @@ export default function BCDetailsPage() {
       <div className="mb-4">
         <button
           onClick={() => navigate('/groups')}
-          className="inline-flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50"
+          className="inline-flex items-center gap-2 rounded-md bg-white dark:bg-slate-800 px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
         >
           ← Back to BC List
         </button>
@@ -151,41 +151,41 @@ export default function BCDetailsPage() {
         <Card className="p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-slate-500">Monthly Amount</p>
-              <p className="mt-2 text-2xl font-bold">{formatCurrency(group.monthlyAmount)}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Monthly Amount</p>
+              <p className="mt-2 text-2xl font-bold text-ink dark:text-slate-100">{formatCurrency(group.monthlyAmount)}</p>
             </div>
-            <div className="text-sm text-slate-500">
+            <div className="text-sm text-slate-600 dark:text-slate-400">
               <p>Total Members</p>
-              <p className="mt-2 text-lg font-semibold">{group.totalMembers}</p>
+              <p className="mt-2 text-lg font-semibold text-ink dark:text-slate-100">{group.totalMembers}</p>
             </div>
           </div>
 
           <div className="mt-6 grid grid-cols-2 gap-4">
             <div>
-              <p className="text-xs text-slate-500">Duration</p>
-              <p className="mt-1 text-sm font-medium">{group.durationMonths} months</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400">Duration</p>
+              <p className="mt-1 text-sm font-medium text-ink dark:text-slate-100">{group.durationMonths} months</p>
             </div>
 
             <div>
-              <p className="text-xs text-slate-500">Status</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400">Status</p>
               <div className={`mt-1 inline-flex items-center gap-2 rounded-md px-2 py-1 text-xs font-medium ${statusClass(group.status)}`}>
                 {group.status}
               </div>
             </div>
 
             <div>
-              <p className="text-xs text-slate-500">Start Date</p>
-              <p className="mt-1 text-sm font-medium">{formatDate(group.startDate)}</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400">Start Date</p>
+              <p className="mt-1 text-sm font-medium text-ink dark:text-slate-100">{formatDate(group.startDate)}</p>
             </div>
 
             <div>
-              <p className="text-xs text-slate-500">Collection Day</p>
-              <p className="mt-1 text-sm font-medium">{group.collectionDay} of every month</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400">Collection Day</p>
+              <p className="mt-1 text-sm font-medium text-ink dark:text-slate-100">{group.collectionDay} of every month</p>
             </div>
 
             <div>
-              <p className="text-xs text-slate-500">Winner Day</p>
-              <p className="mt-1 text-sm font-medium">{group.winnerDay} of every month</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400">Winner Day</p>
+              <p className="mt-1 text-sm font-medium text-ink dark:text-slate-100">{group.winnerDay} of every month</p>
             </div>
           </div>
         </Card>
@@ -193,52 +193,52 @@ export default function BCDetailsPage() {
         <div className="md:col-span-2">
   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
     <div
-      className="cursor-pointer rounded-lg border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md"
+      className="cursor-pointer rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-8 shadow-sm hover:shadow-md dark:hover:shadow-lg transition"
       onClick={() => {
         navigate(`/groups/${id}/members`);
       }}
     >
       <div className="flex h-36 flex-col items-center justify-center gap-3 text-center">
-        <Users size={28} />
-        <p className="text-sm font-semibold text-slate-700">Members</p>
+        <Users size={28} className="text-slate-700 dark:text-slate-400" />
+        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">Members</p>
       </div>
     </div>
 
     <div
-      className="cursor-pointer rounded-lg border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md"
+      className="cursor-pointer rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-8 shadow-sm hover:shadow-md dark:hover:shadow-lg transition"
       onClick={() => navigate(`/groups/${id}/collections`)}
     >
       <div className="flex h-36 flex-col items-center justify-center gap-3 text-center">
-        <CreditCard size={28} />
-        <p className="text-sm font-semibold text-slate-700">Monthly Collection</p>
+        <CreditCard size={28} className="text-slate-700 dark:text-slate-400" />
+        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">Monthly Collection</p>
       </div>
     </div>
 
     <div
-      className="cursor-pointer rounded-lg border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition"
+      className="cursor-pointer rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-8 shadow-sm hover:shadow-md dark:hover:shadow-lg transition"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-3">
-          <Award size={24} className="mt-1 text-slate-600" />
+          <Award size={24} className="mt-1 text-slate-600 dark:text-slate-400" />
           <div className="flex-1">
-            <p className="text-sm font-semibold text-slate-700">Winners</p>
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">Winners</p>
             {winnersLoading ? (
-              <p className="mt-2 text-sm text-slate-500">Loading…</p>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">Loading…</p>
             ) : (
               <>
                 {/* Current Month Status */}
                 {currentMonth !== null && (
-                  <div className="mt-3 rounded-lg bg-blue-50 border border-blue-200 p-3">
-                    <p className="text-xs font-medium text-blue-700">Month {currentMonth.monthNumber} / {group.durationMonths}</p>
+                  <div className="mt-3 rounded-lg bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 p-3">
+                    <p className="text-xs font-medium text-blue-700 dark:text-blue-300">Month {currentMonth.monthNumber} / {group.durationMonths}</p>
                     {currentWinner ? (
                       <>
-                        <p className="mt-1 text-sm font-semibold text-blue-900">{currentWinner.winnerName}</p>
-                        <p className="mt-1 text-xs text-blue-600">
+                        <p className="mt-1 text-sm font-semibold text-blue-900 dark:text-blue-100">{currentWinner.winnerName}</p>
+                        <p className="mt-1 text-xs text-blue-700 dark:text-blue-300">
                           Winning Amount: <span className="font-semibold">{formatCurrency(currentWinner.winningAmount)}</span>
                         </p>
                       </>
                     ) : (
-                      <p className="mt-1 text-sm text-blue-600">Not Selected</p>
+                      <p className="mt-1 text-sm text-blue-700 dark:text-blue-300">Not Selected</p>
                     )}
                     {!currentWinner && (
                       <button
@@ -247,7 +247,7 @@ export default function BCDetailsPage() {
                           handleOpenWinnerSelector();
                         }}
                         disabled={selectingWinner}
-                        className="mt-2 inline-flex items-center gap-1 rounded px-2 py-1 text-xs font-semibold bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50"
+                        className="mt-2 inline-flex items-center gap-1 rounded px-2 py-1 text-xs font-semibold bg-blue-600 dark:bg-blue-700 text-white hover:bg-blue-700 dark:hover:bg-blue-600 disabled:opacity-50"
                       >
                         Select Winner
                       </button>
@@ -258,8 +258,8 @@ export default function BCDetailsPage() {
                 {/* Winner Selector Modal */}
                 {showWinnerSelector && (
                   <div className="fixed inset-0 z-50 flex items-end bg-black/50 sm:items-center">
-                    <div className="w-full rounded-t-lg bg-white p-6 sm:rounded-lg sm:max-w-md">
-                      <p className="font-semibold text-slate-900">Select Winner for Month {currentMonth.monthNumber}</p>
+                    <div className="w-full rounded-t-lg dark:dark bg-white dark:bg-slate-900 p-6 sm:rounded-lg sm:max-w-md">
+                      <p className="font-semibold text-slate-900 dark:text-slate-100">Select Winner for Month {currentMonth.monthNumber}</p>
                       <div className="mt-4 space-y-2 max-h-64 overflow-y-auto">
                         {eligibleMembers.length > 0 ? (
                           eligibleMembers.map((member) => (
@@ -267,18 +267,18 @@ export default function BCDetailsPage() {
                               key={member.id}
                               onClick={() => handleSelectWinner(member.id)}
                               disabled={selectingWinner}
-                              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-50"
+                              className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-left text-sm text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50"
                             >
                               {member.name}
                             </button>
                           ))
                         ) : (
-                          <p className="text-sm text-slate-500">No eligible members available.</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400">No eligible members available.</p>
                         )}
                       </div>
                       <button
                         onClick={() => setShowWinnerSelector(false)}
-                        className="mt-4 w-full rounded-md bg-slate-200 px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-300"
+                        className="mt-4 w-full rounded-md bg-slate-200 dark:bg-slate-700 px-3 py-2 text-sm font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-600"
                       >
                         Cancel
                       </button>
@@ -289,18 +289,18 @@ export default function BCDetailsPage() {
                 {/* Completed Winners History */}
                 {winners.length > 0 && (
                   <div className="mt-3 space-y-2">
-                    <p className="text-xs font-medium text-slate-600">Completed</p>
+                    <p className="text-xs font-medium text-slate-600 dark:text-slate-400">Completed</p>
                     {winners
                       .filter((w) => currentMonth === null || w.monthNumber < currentMonth.monthNumber)
                       .slice(0, 3)
                       .map((winner) => (
-                        <div key={winner.id} className="flex items-center justify-between gap-3 rounded-lg bg-slate-50 px-3 py-2 text-xs">
-                          <span className="text-slate-700">
+                        <div key={winner.id} className="flex items-center justify-between gap-3 rounded-lg bg-slate-50 dark:bg-slate-800 px-3 py-2 text-xs">
+                          <span className="text-slate-700 dark:text-slate-300">
                             <span className="font-semibold">Month {winner.monthNumber}</span>
-                            <span className="mx-2 text-slate-400">·</span>
+                            <span className="mx-2 text-slate-400 dark:text-slate-600">·</span>
                             <span>{winner.winnerName}</span>
                           </span>
-                          <span className="font-semibold text-slate-900">{formatCurrency(winner.winningAmount)}</span>
+                          <span className="font-semibold text-slate-900 dark:text-slate-100">{formatCurrency(winner.winningAmount)}</span>
                         </div>
                       ))}
                   </div>
@@ -308,7 +308,7 @@ export default function BCDetailsPage() {
 
                 <button
                   onClick={() => navigate(`/groups/${id}/winners`)}
-                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-leaf hover:text-leaf/80"
+                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-leaf dark:text-emerald-400 hover:text-leaf/80 dark:hover:text-emerald-300"
                 >
                   View Winner History
                   <Users size={14} />
@@ -322,8 +322,8 @@ export default function BCDetailsPage() {
 
     <Card className="p-8">
       <div className="flex h-36 flex-col items-center justify-center gap-3 text-center">
-        <FileText size={28} />
-        <p className="text-sm font-semibold text-slate-700">Reports</p>
+        <FileText size={28} className="text-slate-700 dark:text-slate-400" />
+        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">Reports</p>
       </div>
     </Card>
   </div>
