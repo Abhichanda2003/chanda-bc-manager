@@ -60,3 +60,4 @@ firebase deploy
 ```
 
 Update `.firebaserc` with your real Firebase project ID before deploying.
+# CI/CD test
