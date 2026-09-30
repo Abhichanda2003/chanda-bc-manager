@@ -23,12 +23,12 @@ const collections = {
 export async function loadDashboardData() {
   if (!isFirebaseConfigured || !db) {
     return buildDashboardData({
-      groups: seedGroups,
-      members: seedMembers,
-      payments: seedPayments,
-      winners: seedWinners,
-      events: seedEvents,
-      source: 'Local preview data',
+      groups: orderedGroups,
+      members,
+      payments,
+      winners,
+      events,
+      source: 'Firebase Firestore',
     });
   }
 
