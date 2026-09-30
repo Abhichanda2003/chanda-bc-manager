@@ -272,20 +272,43 @@ export async function getCurrentBCMonth(group) {
 
 export async function loadCurrentMonthWinner(groupId) {
   const group = await loadGroupById(groupId);
+
   if (!group) {
-    return { group: null, currentMonth: null, winner: null };
+    return {
+      group: null,
+      currentMonth: null,
+      winner: null,
+    };
   }
 
   const currentMonth = await getCurrentBCMonth(group);
-  const winners = !isFirebaseConfigured || !db ? seedWinners : await readCollection(collections.winners);
-  const currentWinner = winners.find(
-    (w) => w.groupId === groupId && w.month === currentMonth.monthLabel,
-  ) || null;
+
+  const winners =
+    !isFirebaseConfigured || !db
+      ? seedWinners
+      : await readCollection(collections.winners);
+
+  const currentWinner =
+    winners.find(
+      (w) =>
+        w.groupId === groupId &&
+        Number(w.month) === Number(currentMonth.monthNumber),
+    ) || null;
+
+  const winningAmount = getWinnerAmountForMonth(
+    group,
+    currentMonth.monthNumber,
+  );
 
   return {
     group,
     currentMonth,
-    winner: currentWinner ? { ...currentWinner, winningAmount: group.monthlyAmount || 0 } : null,
+    winner: currentWinner
+      ? {
+          ...currentWinner,
+          winningAmount,
+        }
+      : null,
   };
 }
 
