@@ -82,11 +82,12 @@ export default function GroupPaymentManager({
                 member.id === memberId
                   ? {
                       ...member,
-                      schedule: member.schedule.map((month) =>
-                        month.month === monthName &&
-                        changedPayment
-                          ? changedPayment
-                          : month,
+                      schedule: member.schedule.map(
+                        (month) =>
+                          month.month === monthName &&
+                          changedPayment
+                            ? changedPayment
+                            : month,
                       ),
                     }
                   : member,
@@ -102,42 +103,62 @@ export default function GroupPaymentManager({
   }
 
   return (
-    <div className="space-y-5">
+    <div className="w-full space-y-4 overflow-hidden sm:space-y-5">
       {editableGroups.map((group) => {
-        const isGroupOpen = Boolean(
-          openGroups[group.id],
-        );
+        const isGroupOpen = Boolean(openGroups[group.id]);
 
         return (
           <Card
             key={group.id}
-            className="overflow-hidden border-slate-200 dark:border-slate-700"
+            className="w-full overflow-hidden border-slate-200 dark:border-slate-700"
           >
             {/* =========================
                 BC HEADER
             ========================== */}
-
-            <div className="bg-gradient-to-r from-emerald-700 via-teal-700 to-cyan-700 p-5 text-white">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-
+            <div className="bg-gradient-to-r from-emerald-700 via-teal-700 to-cyan-700 p-4 text-white sm:p-5">
+              <div className="flex flex-col gap-4">
                 {/* BC INFORMATION */}
-
                 <button
                   type="button"
                   onClick={() => toggleGroup(group.id)}
-                  className="flex-1 text-left"
+                  className="w-full text-left"
                   aria-expanded={isGroupOpen}
                 >
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="text-2xl font-bold">
-                      {group.name}
-                    </h3>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="break-words text-lg font-bold sm:text-2xl">
+                          {group.name}
+                        </h3>
 
-                    <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-semibold text-white/90">
-                      {group.status}
-                    </span>
+                        <span className="rounded-full bg-white/20 px-2.5 py-1 text-xs font-semibold text-white/90 sm:px-3 sm:text-sm">
+                          {group.status}
+                        </span>
+                      </div>
 
-                    <span className="rounded-full bg-white/20 p-2">
+                      {/* Mobile-friendly BC information */}
+                      <div className="mt-3 grid grid-cols-1 gap-2 text-xs sm:flex sm:flex-wrap sm:gap-3 sm:text-sm">
+                        <span className="inline-flex items-center gap-2 rounded-md bg-white/15 px-2.5 py-2">
+                          <IndianRupee size={15} />
+                          {formatCurrency(group.monthlyAmount)}
+                          <span className="text-white/75">
+                            / month
+                          </span>
+                        </span>
+
+                        <span className="inline-flex items-center gap-2 rounded-md bg-white/15 px-2.5 py-2">
+                          <Users size={15} />
+                          {group.members.length} members
+                        </span>
+
+                        <span className="inline-flex items-center gap-2 rounded-md bg-white/15 px-2.5 py-2">
+                          <CalendarDays size={15} />
+                          {group.durationMonths} months
+                        </span>
+                      </div>
+                    </div>
+
+                    <span className="flex shrink-0 items-center justify-center rounded-full bg-white/20 p-2">
                       {isGroupOpen ? (
                         <ChevronUp size={20} />
                       ) : (
@@ -145,33 +166,10 @@ export default function GroupPaymentManager({
                       )}
                     </span>
                   </div>
-
-                  <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                    <span className="inline-flex items-center gap-2 rounded-md bg-white/15 px-3 py-2">
-                      <IndianRupee size={16} />
-                      {formatCurrency(
-                        group.monthlyAmount,
-                      )}{' '}
-                      monthly
-                    </span>
-
-                    <span className="inline-flex items-center gap-2 rounded-md bg-white/15 px-3 py-2">
-                      <Users size={16} />
-                      {group.members.length} members
-                    </span>
-
-                    <span className="inline-flex items-center gap-2 rounded-md bg-white/15 px-3 py-2">
-                      <CalendarDays size={16} />
-                      {group.durationMonths} months
-                    </span>
-                  </div>
                 </button>
 
-                {/* =========================
-                    BC DATE - FIXED
-                ========================== */}
-
-                <div className="lg:w-[200px]">
+                {/* BC DATE */}
+                <div className="w-full">
                   <span className="text-xs font-semibold uppercase text-white/75">
                     BC Date
                   </span>
@@ -186,11 +184,10 @@ export default function GroupPaymentManager({
             {/* =========================
                 MEMBERS
             ========================== */}
-
             {isGroupOpen && (
               <div className="divide-y divide-slate-200 dark:divide-slate-700">
                 {group.members.length === 0 ? (
-                  <div className="bg-white px-5 py-6 text-center dark:bg-slate-900">
+                  <div className="bg-white px-4 py-6 text-center dark:bg-slate-900 sm:px-5">
                     <p className="text-sm text-slate-500 dark:text-slate-400">
                       No members added to this BC yet.
                     </p>
@@ -205,17 +202,15 @@ export default function GroupPaymentManager({
 
                     const paidMonths =
                       member.schedule.filter(
-                        (month) =>
-                          month.status === 'Paid',
+                        (month) => month.status === 'Paid',
                       ).length;
 
                     return (
                       <div
                         key={member.id}
-                        className="bg-white dark:bg-slate-900"
+                        className="w-full bg-white dark:bg-slate-900"
                       >
                         {/* MEMBER HEADER */}
-
                         <button
                           type="button"
                           data-testid={`member-toggle-${group.id}-${member.id}`}
@@ -225,22 +220,21 @@ export default function GroupPaymentManager({
                               member.id,
                             )
                           }
-                          className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-emerald-50 dark:hover:bg-slate-800"
+                          className="flex min-h-[72px] w-full items-center justify-between gap-3 px-4 py-4 text-left transition hover:bg-emerald-50 dark:hover:bg-slate-800 sm:px-5"
                           aria-expanded={isOpen}
                         >
-                          <div>
-                            <p className="font-bold text-ink dark:text-slate-100">
+                          <div className="min-w-0 flex-1">
+                            <p className="break-words font-bold text-ink dark:text-slate-100">
                               {member.name}
                             </p>
 
-                            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                            <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 sm:text-sm">
                               Paid {paidMonths} of{' '}
-                              {group.durationMonths}{' '}
-                              months
+                              {group.durationMonths} months
                             </p>
                           </div>
 
-                          <div className="flex items-center gap-3">
+                          <div className="flex shrink-0 items-center gap-2">
                             <Badge>
                               {paidMonths ===
                               group.durationMonths
@@ -263,46 +257,48 @@ export default function GroupPaymentManager({
                         </button>
 
                         {/* MONTHLY PAYMENTS */}
-
                         {isOpen && (
-                          <div className="grid gap-3 bg-slate-50 px-3 py-4 dark:bg-slate-800 sm:grid-cols-2 sm:px-5 xl:grid-cols-3">
-                            {member.schedule.map(
-                              (month) => (
+                          <div className="bg-slate-50 px-3 py-3 dark:bg-slate-800 sm:px-5 sm:py-4">
+                            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                              {member.schedule.map((month) => (
                                 <div
                                   key={month.month}
-                                  className="rounded-md border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900"
+                                  className="w-full rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900"
                                 >
                                   <div className="flex items-start justify-between gap-3">
-                                    <div>
-                                      <p className="font-semibold text-ink dark:text-slate-100">
+                                    <div className="min-w-0">
+                                      <p className="break-words text-sm font-semibold text-ink dark:text-slate-100 sm:text-base">
                                         {month.month}
                                       </p>
 
-                                      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                                      <p className="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">
                                         {formatCurrency(
                                           month.amount,
                                         )}
                                       </p>
 
-                                      <p className="mt-1 text-xs text-slate-500 dark:text-slate-500">
-                                        {formatDate(
-                                          month.paymentDate,
-                                        )}
-                                      </p>
+                                      {month.paymentDate && (
+                                        <p className="mt-1 text-xs text-slate-500 dark:text-slate-500">
+                                          {formatDate(
+                                            month.paymentDate,
+                                          )}
+                                        </p>
+                                      )}
                                     </div>
 
-                                    <Badge>
-                                      {month.status}
-                                    </Badge>
+                                    <div className="shrink-0">
+                                      <Badge>
+                                        {month.status}
+                                      </Badge>
+                                    </div>
                                   </div>
 
                                   <Button
                                     type="button"
                                     data-testid={`month-toggle-${group.id}-${member.id}-${month.month}`}
-                                    className="mt-3 w-full"
+                                    className="mt-3 min-h-11 w-full text-sm"
                                     variant={
-                                      month.status ===
-                                      'Paid'
+                                      month.status === 'Paid'
                                         ? 'secondary'
                                         : 'primary'
                                     }
@@ -314,14 +310,13 @@ export default function GroupPaymentManager({
                                       )
                                     }
                                   >
-                                    {month.status ===
-                                    'Paid'
+                                    {month.status === 'Paid'
                                       ? 'Mark Unpaid'
                                       : 'Mark Paid'}
                                   </Button>
                                 </div>
-                              ),
-                            )}
+                              ))}
+                            </div>
                           </div>
                         )}
                       </div>
