@@ -64,3 +64,5 @@ Update `.firebaserc` with your real Firebase project ID before deploying.
 ## CI/CD Test
 
 Jenkins CI practice: automated build testing.
+
+Testing Jenkins automatic polling again
