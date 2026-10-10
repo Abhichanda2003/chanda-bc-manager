@@ -60,4 +60,7 @@ firebase deploy
 ```
 
 Update `.firebaserc` with your real Firebase project ID before deploying.
-# CI/CD test
+
+## CI/CD Test
+
+Jenkins CI practice: automated build testing.
